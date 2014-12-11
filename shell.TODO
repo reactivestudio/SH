@@ -1,0 +1,5 @@
+TODO
+1. Export path of shell script. *.sh without path to shell script dir.
+2. Remove dl section. Use only -y en
+3. Move modules to drush.make file with patches, libraries and module's versions
+4. Explore other drush powerful tools.
