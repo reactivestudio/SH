@@ -155,7 +155,7 @@ drush dl drush_language -y
 # xmlsitemap \
 # yamaps;
 
-drush make --no-core --contrib-destination=$httpDir/$projectDir $makefile
+drush make --no-core --contrib-destination=$httpDir/$projectDir $makefile;
 
 
 
