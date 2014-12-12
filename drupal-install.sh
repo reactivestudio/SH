@@ -177,6 +177,8 @@ drush vset theme_default omega;
 
 
 
+# Update starterkits and layoutkits
+drush omega-download-reactive-assets
 
 
 echo "Disabling some contrib modules and themes...";
