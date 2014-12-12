@@ -37,8 +37,9 @@ projects[webform][version] = "4.2"
 projects[xmlsitemap][version] = "2.1"
 projects[yamaps][version] = "1.5"
 
-projects[reactive_tools][download] = "git"
-projects[reactive_tools][url] = "git://github.com/reactivestudio/reactive_tools.git"
+projects[reactive_tools][type] = "module"
+projects[reactive_tools][download][type] = "git"
+projects[reactive_tools][download][url] = "git://github.com/reactivestudio/reactive_tools.git"
 
 ; Themes
 ;projects[maps_admin][version] = "1.4"

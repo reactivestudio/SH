@@ -72,7 +72,11 @@ echo "Installing drupal core with $drupalProfile profile...";
 # Download core
 drush dl -y --destination=$httpDir --drupal-project-rename=$projectDir;
 
+# cp $makefile $httpDir/$projectDir/config.make;
+
 cd $httpDir/$projectDir;
+
+# drush make --prepare-install --yes config.make;
 
 # Install core, create db
 drush site-install -y $drupalProfile --account-mail=$adminEmail --account-name=$adminUsername --account-pass=$adminPassword --site-name="$siteName" --site-mail=$adminEmail --locale=$siteLocale --db-url=mysql://$dbUser:$dbPassword@$dbHost/$dbName;
@@ -85,77 +89,80 @@ echo "Installing modules...";
 # Install drush language pack
 drush dl drush_language -y
 
+# Install config modules
+drush -y dl \
+adminimal_admin_menu \
+append_file_info \
+backup_migrate \
+devel \
+entity \
+ckeditor \
+ctools \
+fast_dblog \
+fences \
+field_collection_fieldset \
+field_group \
+filefield_paths \
+globalredirect \
+google_analytics \
+httprl \
+jquery_update \
+l10n_update \
+lightbox2 \
+menu_block \
+metatag \
+module_filter \
+pathauto \
+redirect \
+token \
+transliteration \
+views \
+views_bulk_operations \
+webform \
+xmlsitemap \
+yamaps;
 
-# # Install config modules
-# drush -y dl \
-# adminimal_admin_menu \
-# append_file_info \
-# backup_migrate \
-# devel \
-# entity \
-# ckeditor \
-# ctools \
-# fast_dblog \
-# fences \
-# field_collection_fieldset \
-# field_group \
-# filefield_paths \
-# globalredirect \
-# google_analytics \
-# httprl \
-# jquery_update \
-# l10n_update \
-# lightbox2 \
-# menu_block \
-# metatag \
-# module_filter \
-# pathauto \
-# redirect \
-# token \
-# transliteration \
-# views \
-# views_bulk_operations \
-# webform \
-# xmlsitemap \
-# yamaps;
+
+# Install useful modules
+drush -y en \
+adminimal_admin_menu \
+append_file_info \
+entity \
+ckeditor \
+ctools \
+fast_dblog \
+fences \
+field_collection_fieldset \
+field_group \
+filefield_paths \
+globalredirect \
+googleanalytics \
+httprl \
+image \
+jquery_update \
+l10n_update \
+list \
+lightbox2 \
+menu_block \
+metatag \
+module_filter \
+number \
+pathauto \
+redirect \
+text \
+token \
+transliteration \
+views \
+views_bulk_operations \
+webform \
+xmlsitemap \
+yamaps;
 
 
-# # Install useful modules
-# drush -y en \
-# adminimal_admin_menu \
-# append_file_info \
-# entity \
-# ckeditor \
-# ctools \
-# fast_dblog \
-# fences \
-# field_collection_fieldset \
-# field_group \
-# filefield_paths \
-# globalredirect \
-# googleanalytics \
-# httprl \
-# image \
-# jquery_update \
-# l10n_update \
-# list \
-# lightbox2 \
-# menu_block \
-# metatag \
-# module_filter \
-# number \
-# pathauto \
-# redirect \
-# text \
-# token \
-# transliteration \
-# views \
-# views_bulk_operations \
-# webform \
-# xmlsitemap \
-# yamaps;
+echo "Installing Reactive Studio modules..."
+git clone git://github.com/reactivestudio/reactive_tools.git sites/all/modules/reactive_tools;
 
-drush make --no-core --contrib-destination=$httpDir/$projectDir $makefile;
+drush en -y reactive_tools;
 
 
 
