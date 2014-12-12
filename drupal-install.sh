@@ -171,14 +171,14 @@ echo "Installing themes...";
 
 # Install themes
 drush -y dl omega maps_admin;
-drush -y en omega ohm;
+drush -y en omega;
 drush vset admin_theme maps_admin;
 drush vset theme_default omega;
 
-
+drush cc drush;
 
 # Update starterkits and layoutkits
-drush omega-download-reactive-assets
+drush omega-dra;
 
 
 echo "Disabling some contrib modules and themes...";
